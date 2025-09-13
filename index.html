@@ -8,42 +8,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #1a1a1a;
-            --secondary-color: #FF5A36;
-            --accent-color: #36B37E;
-            --background-color: #ffffff;
-            --text-color: #2C3E50;
-        
         body {
-            font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #000;
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
         }
 
-        header {
+        .fullscreen-container {
             position: relative;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             text-align: center;
-            background-color: #000;
-            overflow: hidden;
         }
 
-        .header-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        .header-image {
+        .background-image {
             position: absolute;
             top: 0;
             left: 0;
@@ -51,294 +35,80 @@
             height: 100%;
             object-fit: cover;
             opacity: 0.7;
+            transition: opacity 0.5s ease;
         }
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 1rem;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--secondary-color);
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .section {
-            margin: 8rem 0;
+        .content {
             position: relative;
-        }
-
-        .hero {
-            text-align: center;
+            z-index: 2;
             max-width: 800px;
-            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .hero h2 {
+        h1 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
         }
 
-        .hero p {
+        p {
             font-size: 1.2rem;
-            color: #666;
+            line-height: 1.6;
             margin-bottom: 2rem;
         }
 
-        .cta-button {
+        .strava-link {
             display: inline-block;
-            background-color: var(--secondary-color);
+            background-color: #FC4C02;
             color: white;
+            text-decoration: none;
             padding: 1rem 2rem;
             border-radius: 8px;
-            text-decoration: none;
             font-weight: 600;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .cta-button:hover {
+        .strava-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 90, 54, 0.2);
-        }
-
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .image-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .image-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .image-item.large {
-            grid-column: span 8;
-            grid-row: span 2;
-        }
-
-        .image-item.small {
-            grid-column: span 4;
-        }
-
-        .image-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin: 4rem 0;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .feature-item h3 {
-            font-size: 1.5rem;
-            margin: 1rem 0;
-            color: var(--primary-color);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .quote {
-            font-size: 1.8rem;
-            font-style: italic;
-            text-align: center;
-            max-width: 800px;
-            margin: 4rem auto;
-            color: var(--primary-color);
-        }
-
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem;
-            margin-top: 8rem;
-        }
-
-        footer a {
-            color: var(--secondary-color);
-            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(252, 76, 2, 0.3);
         }
 
         @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .image-item.large,
-            .image-item.small {
-                grid-column: 1 / -1;
-            }
-
-            .hero h2 {
+            h1 {
                 font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="images/header.jpg" alt="Cykling i naturen" class="header-image">
-        <div class="header-content">
-            <h1>Nordvest Cykleklub</h1>
-            <p>Fællesskab, Passion & Eventyr på To Hjul</p>
+    <div class="fullscreen-container">
+        <img src="images/header.jpg" alt="Cykling i naturen" class="background-image">
+        <div class="content">
+            <h1>Velkommen til Nordvest Cykleklub</h1>
+            <p>Hvis du vil med ud og trille, så hop ind på vores Strava klub og se vores kommende ture</p>
+            <a href="https://www.strava.com/clubs/1739880" target="_blank" class="strava-link">Besøg vores Strava klub</a>
         </div>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#om-os">Om Os</a></li>
-            <li><a href="#faellesskab">Fællesskab</a></li>
-            <li><a href="#galleri">Galleri</a></li>
-            <li><a href="#strava">Strava</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section id="om-os" class="section">
-            <div class="container">
-                <div class="hero">
-                    <h2>Velkommen til vores Cykelklub</h2>
-                    <p>Vi er mere end bare en cykelklub - vi er et fællesskab af passionerede mennesker, der deler glæden ved at cykle sammen. Hos os handler det om at nyde turen, finde nye veje og skabe varige venskaber.</p>
-                    <a href="#strava" class="cta-button">Bliv en del af fællesskabet</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="faellesskab" class="section">
-            <div class="container">
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">🚴</div>
-                        <h3>Fælles Ture</h3>
-                        <p>Vi mødes flere gange om ugen til både korte og lange ture. Her er plads til alle niveauer, og vi venter altid på hinanden.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">☕</div>
-                        <h3>Kaffestop</h3>
-                        <p>Vores ture inkluderer altid et hyggeligt stop, hvor vi kan nyde en kop kaffe og dele historier fra vejen.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🌲</div>
-                        <h3>Eventyr</h3>
-                        <p>Fra landevej til gravel - vi udforsker alle de smukke ruter Nordvest har at byde på.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="galleri" class="section">
-            <div class="container">
-                <div class="image-grid">
-                    <div class="image-item large">
-                        <img src="images/group-ride.jpg" alt="Fælles cykeltur i naturen">
-                    </div>
-                    <div class="image-item small">
-                        <img src="images/coffee-break.jpg" alt="Kaffepause efter cykelturen">
-                    </div>
-                    <div class="image-item small">
-                        <img src="images/evening-ride.jpg" alt="Aftentur med lygter">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="quote">
-            "Det handler ikke om hvor hurtigt vi kører, men om de mennesker vi møder på vejen"
-        </div>
-
-        <section id="strava" class="section">
-            <div class="container">
-                <div class="hero">
-                    <h2>Følg vores Eventyr på Strava</h2>
-                    <p>Se vores ruter, deltag i klubbens udfordringer og bliv en del af vores online fællesskab.</p>
-                    <a href="https://www.strava.com/clubs/1739880" target="_blank" class="cta-button">Join os på Strava</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2025 Nordvest Cykleklub</p>
-        <p>Find os på <a href="https://www.strava.com/clubs/1739880">Strava</a> og kom med på vores næste tur!</p>
-    </footer>
+    </div>
 
     <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        // Skift mellem baggrundsbilleder
+        const images = ['header.jpg', 'group-ride.jpg', 'evening-ride.jpg'];
+        let currentImage = 0;
+        const backgroundImage = document.querySelector('.background-image');
 
-        // Add background to nav on scroll
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.boxShadow = 'none';
-            }
-        });
+        setInterval(() => {
+            currentImage = (currentImage + 1) % images.length;
+            backgroundImage.style.opacity = '0';
+            
+            setTimeout(() => {
+                backgroundImage.src = `images/${images[currentImage]}`;
+                backgroundImage.style.opacity = '0.7';
+            }, 500);
+        }, 5000);
     </script>
 </body>
 </html>
-
