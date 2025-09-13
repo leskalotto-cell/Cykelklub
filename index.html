@@ -1,24 +1,159 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <title>Min Cykelklub</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 40px; }
-    h1 { color: darkgreen; }
-    img { max-width: 400px; border-radius: 8px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nordvest Cykleklub</title>
+    <style>
+        :root {
+            --primary-color: #2E5A88;
+            --secondary-color: #FF6B6B;
+            --background-color: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Velkommen til Cykelklubben 🚴</h1>
-  <p>Vi mødes hver uge for at cykle og hygge os på landevej og gravel.</p>
-  
-  <h2>Billeder</h2>
-  <img src="billede1.jpg" alt="Cykeltur">
-  <img src="billede2.jpg" alt="Gravel-rute">
+    <header>
+        <h1>Nordvest Cykleklub 🚴</h1>
+        <p>Fællesskab, Motion & Cykelglæde</p>
+    </header>
 
-  <h2>Find os på Strava</h2>
-  <p><a href="https://www.strava.com/clubs/DIN-CLUB-ID" target="_blank">👉 Besøg vores Strava Club</a></p>
+    <nav>
+        <ul>
+            <li><a href="#om-os">Om Os</a></li>
+            <li><a href="#aktiviteter">Aktiviteter</a></li>
+            <li><a href="#galleri">Galleri</a></li>
+            <li><a href="#strava">Strava</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="om-os" class="hero">
+            <h2>Velkommen til Nordvest Cykleklub</h2>
+            <p>Vi er en passioneret gruppe af cykelentusiaster, der deler glæden ved at cykle sammen. 
+               Uanset om du er til landevejscykling eller gravel, er der plads til dig hos os.</p>
+            <a href="#strava" class="cta-button">Bliv Medlem</a>
+        </section>
+
+        <section id="aktiviteter">
+            <h2>Vores Aktiviteter</h2>
+            <ul>
+                <li>Ugentlige fællesture (tirsdag og torsdag)</li>
+                <li>Weekend langture</li>
+                <li>Gravel eventyr i weekenden</li>
+                <li>Sociale arrangementer</li>
+            </ul>
+        </section>
+
+        <section id="galleri" class="gallery">
+            <img src="billede1.jpg" alt="Cykeltur på landevejen" onerror="this.src='https://via.placeholder.com/400x250/2E5A88/ffffff?text=Cykeltur'">
+            <img src="billede2.jpg" alt="Gravel cykling" onerror="this.src='https://via.placeholder.com/400x250/FF6B6B/ffffff?text=Gravel'">
+        </section>
+
+        <section id="strava">
+            <h2>Join os på Strava</h2>
+            <p>Følg med i vores ture og aktiviteter på Strava. Her kan du se ruter, statistikker og deltage i klubbens udfordringer.</p>
+            <a href="https://www.strava.com/clubs/DIN-CLUB-ID" target="_blank" class="cta-button">👉 Besøg vores Strava Club</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Nordvest Cykleklub - Find os på <a href="https://www.strava.com/clubs/DIN-CLUB-ID" style="color: white;">Strava</a></p>
+    </footer>
 </body>
 </html>
 
